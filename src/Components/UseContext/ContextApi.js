@@ -1,19 +1,15 @@
-import React, { createContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, useEffect, useRef, useState } from "react";
 
-import clear_icon from '../../img/clear.png';
-import cloud_icon from '../../img/cloud.png';
-import drizzle_icon from '../../img/drizzle.png';
-import rain_icon from '../../img/rain.png';
-import snow_icon from '../../img/snow.png';
+import clear_icon from "../../img/clear.png";
+import cloud_icon from "../../img/cloud.png";
+import drizzle_icon from "../../img/drizzle.png";
+import rain_icon from "../../img/rain.png";
+import snow_icon from "../../img/snow.png";
 
 export const ApiContext = createContext();
 
 export const ApiProvider = ({ children }) => {
-
-
-
-
-const inputRef=useRef()
+  const inputRef = useRef();
 
   const [weatherData, setWeatherData] = useState(null);
 
@@ -35,25 +31,22 @@ const inputRef=useRef()
   };
 
   const search = async (city) => {
-
-if(city===""){
-    alert('Enter the city name')
-    return
-}
+    if (city === "") {
+      alert("Enter the city name");
+      return;
+    }
 
     try {
-      const apiKey = '615f1fbcad4826e2a017e27be72ea304';
+      const apiKey = "615f1fbcad4826e2a017e27be72ea304";
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
       const response = await fetch(url);
       const data = await response.json();
 
-
-if(!response.ok){
-    alert(data.message)
-    return
-}
-
+      if (!response.ok) {
+        alert(data.message);
+        return;
+      }
 
       console.log(data);
 
@@ -67,7 +60,7 @@ if(!response.ok){
         icon: icon,
       });
     } catch (err) {
-      console.error('Error fetching weather data:', err);
+      console.error("Error fetching weather data:", err);
     }
   };
 
@@ -76,7 +69,7 @@ if(!response.ok){
   });
 
   return (
-    <ApiContext.Provider value={{ weatherData, search,inputRef }}>
+    <ApiContext.Provider value={{ weatherData, search, inputRef }}>
       {children}
     </ApiContext.Provider>
   );

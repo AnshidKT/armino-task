@@ -7,7 +7,7 @@ const WeatherLeft = () => {
 
   return (
     <div
-     id="leftbox"
+      id="leftbox"
       className=" mt-10 w-80 h-80 md:w-96 md:h-96 rounded-3xl md:mr-10 mb-5 sm:mb-0 sm:mr-5 flex flex-col items-center justify-around  p-4"
     >
       <div className="flex items-center justify-center">
@@ -31,7 +31,7 @@ const WeatherLeft = () => {
           }}
           onClick={() => search(inputRef.current.value)}
         >
-          <CiSearch style={{ width: 15, height: 15 ,color:'white'}} />
+          <CiSearch style={{ width: 15, height: 15, color: "white" }} />
         </div>
       </div>
 
