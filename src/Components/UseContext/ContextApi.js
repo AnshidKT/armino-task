@@ -63,11 +63,9 @@ export const ApiProvider = ({ children }) => {
       console.error("Error fetching weather data:", err);
     }
   };
-
   useEffect(() => {
     search("Kerala");
   });
-
   return (
     <ApiContext.Provider value={{ weatherData, search, inputRef }}>
       {children}
