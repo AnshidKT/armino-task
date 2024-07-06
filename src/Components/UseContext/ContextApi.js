@@ -64,8 +64,8 @@ export const ApiProvider = ({ children }) => {
     }
   };
   useEffect(() => {
-    search("Kerala");
-  });
+    search("");
+  },[]);
   return (
     <ApiContext.Provider value={{ weatherData, search, inputRef }}>
       {children}
