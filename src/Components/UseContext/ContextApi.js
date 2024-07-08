@@ -62,8 +62,7 @@ export const ApiProvider = ({ children }) => {
     } catch (err) {
       console.error("Error fetching weather data:", err);
     }
-  };
-  useEffect(() => {
+  };useEffect(() => {
     search("Delhi");
   },[]);
   return (
